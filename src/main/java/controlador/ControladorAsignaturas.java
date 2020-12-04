@@ -37,7 +37,12 @@ public class ControladorAsignaturas implements Serializable{
     
     public void GuardarAsignaturasFichero() throws IOException{
         Asignaturas asignaturas = new Asignaturas();
-        asignaturas.GuardarAsignaturasFichero(this.array_asignatuas);      
+        asignaturas.GuardarAsignaturasFichero(this.array_asignatuas.get(this.array_asignatuas.size() - 1));
+    }
+    
+    public void deleteAsignaturasFichero(int id){
+        Asignaturas colegio = new Asignaturas();
+        colegio.DeleteAsignaturaFichero(id);
     }
     
     public String[][] introducirAsignaturasEnMatriz(){

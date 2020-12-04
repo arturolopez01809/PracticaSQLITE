@@ -91,15 +91,33 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
         //GuardarEnFichero();
         conectar.createNewTableColegios();
-        
+        conectar.createNewTableProfesores();
+        conectar.createNewTableAsignaturas();
+
         //Muestro los colegios almacenados
         try {
-                controlador_colegios.CaptarColegiosFichero();
-                contenido_tabla = controlador_colegios.introducirColegiosEnMatriz();
-                this.mostrarTablaColegio(contenido_tabla);
-            } catch (IOException ex) {
-                Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            controlador_colegios.CaptarColegiosFichero();
+            contenido_tabla = controlador_colegios.introducirColegiosEnMatriz();
+            this.mostrarTablaColegio(contenido_tabla);
+        } catch (IOException ex) {
+            Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            controlador_profesores.CaptarProfesoresFichero();
+            contenido_tabla_profesores = controlador_profesores.introducirProfesorEnMatriz();
+            this.mostrarTablaProfesores(contenido_tabla_profesores);
+        } catch (IOException ex) {
+            Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            controlador_asignaturas.CaptarAsignaturasFichero();
+            contenido_tabla_asignaturas = controlador_asignaturas.introducirAsignaturasEnMatriz();
+            this.mostrarTablaAsignaturas(contenido_tabla_asignaturas);
+        } catch (IOException ex) {
+            Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         CaptarYActualizarComboBoxCodColegios();
         CaptarYActualizarComboBoxCod_prof();
@@ -750,17 +768,17 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             try {
                 Colegio colegio = new Colegio(Integer.valueOf(textFieldCod_colegio.getText()), textFieldNombre.getText(), textFieldDireccion.getText(), Boolean.valueOf(textFieldEsPublico.getText()), Boolean.valueOf(textFieldTieneFP.getText()));
-                
+
                 contenido_tabla = controlador_colegios.almacenarColegios(colegio);
-                
+
                 System.out.println(colegio.id);
-                
+
                 this.mostrarTablaColegio(contenido_tabla);
-                
+
                 this.setActivar_ingresar(false);
-                
+
                 this.borrarTextFieldColegio();
-                
+
                 this.activarDesactivarEdicionBotones(false);
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
@@ -783,7 +801,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             try {
                 controlador_colegios.CaptarColegiosFichero();
             } catch (IOException ex) {
@@ -804,7 +822,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
             boolean aux = this.buscarFKEnProfesores(i);
 
             if (aux == false) {
-                
+
                 this.controlador_colegios.deleteColegioFichero(this.controlador_colegios.getArray_colegio().get(i).getCod_colegio());
 
                 try {
@@ -838,18 +856,16 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
         for (int i = 0; i < this.controlador_profesores.getArray_profesores().size(); i++) {
 
-            if (controlador_profesores.getProfesoresDeArray(i).getCod_colegio() == String.valueOf(this.controlador_colegios.getColegioDeArray(aux).getCod_colegio())) {
+            if (controlador_profesores.getProfesoresDeArray(i).getCod_colegio() == this.controlador_colegios.getColegioDeArray(aux).getCod_colegio()) {
                 encontrado = true;
             }
-            
-            
-            
+
         }
 
         return encontrado;
 
     }
-    
+
     public boolean buscarFKEnAsignaturas(int aux) {
 
         boolean encontrado = false;
@@ -883,6 +899,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         textFieldEstudios.setText("");
         textFieldRango.setText("");
         textFieldGenero.setText("");
+        textFieldCod_colegio.setText("");
     }
 
     private void borrarTextFieldAsignaturas() {
@@ -892,12 +909,14 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         textFieldTipo.setText("");
         textFieldCurso.setText("");
         textFieldNombreAsignatura.setText("");
+        textFieldCod_prof.setText("");
 
     }
 
     private void mostrarAtributosColegio(int i) {
 
         textFieldCod_colegio.setText(String.valueOf(this.controlador_colegios.getColegioDeArray(i).getCod_colegio()));
+        //textFieldCod_colegio.setText(String.valueOf(this.controlador_colegios.getColegioDeArray(i).id));
         textFieldNombre.setText(this.controlador_colegios.getColegioDeArray(i).getNombre());
         textFieldDireccion.setText(this.controlador_colegios.getColegioDeArray(i).getDireccion());
         textFieldEsPublico.setText(String.valueOf(this.controlador_colegios.getColegioDeArray(i).isEsPublico()));
@@ -990,25 +1009,40 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
         if (isActivar_ingresar_asignaturas()) {
 
-            Asignaturas asignatura = new Asignaturas(Integer.valueOf(textFieldCod_asig.getText()), textFieldTipo.getText(), Integer.valueOf(textFieldCurso.getText()), textFieldNombreAsignatura.getText(), Integer.valueOf(textFieldConvocatoria.getText()), Integer.valueOf((String) jComboBoxAsignaturas.getSelectedItem()));
-
-            controlador_asignaturas.insertarAsignatura(asignatura);
-
-            contenido_tabla = controlador_asignaturas.introducirAsignaturasEnMatriz();
-
             try {
-                controlador_asignaturas.GuardarAsignaturasFichero();
+
+                int id = 0;
+
+                for (int i = 0; i < this.controlador_profesores.getArray_profesores().size(); i++) {
+                    if (String.valueOf(jComboBoxAsignaturas.getSelectedItem()) == this.controlador_profesores.getArray_profesores().get(i).getNombre()) {
+                        id = this.controlador_profesores.getArray_profesores().get(i).getCod_prof();
+                    }
+                }
+
+                Asignaturas asignatura = new Asignaturas(Integer.valueOf(textFieldCod_asig.getText()), textFieldTipo.getText(), Integer.valueOf(textFieldCurso.getText()), textFieldNombreAsignatura.getText(), Integer.valueOf(textFieldConvocatoria.getText()), id);
+
+                controlador_asignaturas.insertarAsignatura(asignatura);
+
+                contenido_tabla = controlador_asignaturas.introducirAsignaturasEnMatriz();
+
+                try {
+                    //controlador_asignaturas.GuardarAsignaturasFichero();
+                    controlador_profesores.CaptarProfesoresFichero();
+                } catch (IOException ex) {
+                    Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                this.mostrarTablaAsignaturas(contenido_tabla);
+
+                this.setActivar_ingresar_asignaturas(false);
+
+                this.borrarTextFieldAsignaturas();
+
+                this.activarDesactivarEdicionBotonesAsignaturas(false);
+
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            this.mostrarTablaAsignaturas(contenido_tabla);
-
-            this.setActivar_ingresar_asignaturas(false);
-
-            this.borrarTextFieldAsignaturas();
-
-            this.activarDesactivarEdicionBotonesAsignaturas(false);
 
         } else if (isActivar_modificar_asignaturas()) {
 
@@ -1039,16 +1073,18 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         } else if (isActivar_eliminar_asignaturas()) {
             int i = jTable3.getSelectedRow();
 
-            this.controlador_asignaturas.getArray_asignatuas().remove(i);
+            this.controlador_asignaturas.deleteAsignaturasFichero(this.controlador_asignaturas.getArray_asignatuas().get(i).getCod_asig());
 
             contenido_tabla = controlador_asignaturas.introducirAsignaturasEnMatriz();
 
             try {
-                controlador_asignaturas.GuardarAsignaturasFichero();
+                //controlador_asignaturas.GuardarAsignaturasFichero();
+                controlador_profesores.CaptarProfesoresFichero();
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
+            contenido_tabla = controlador_asignaturas.introducirAsignaturasEnMatriz();
             this.mostrarTablaAsignaturas(contenido_tabla);
 
             this.setActivar_eliminar_asignaturas(false);
@@ -1124,27 +1160,34 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             try {
 
-                //Profesores profesor = new Profesores(Integer.valueOf(textFieldCod_prof.getText()), textFieldNombreProf.getText(), textFieldEstudios.getText(), textFieldRango.getText(), textFieldGenero.getText(), Integer.valueOf((String) jComboBox2.getSelectedItem()));
-                Profesores profesor = new Profesores(Integer.valueOf(textFieldCod_prof.getText()), textFieldNombreProf.getText(), textFieldEstudios.getText(), textFieldRango.getText(), textFieldGenero.getText(), String.valueOf(jComboBox2.getSelectedItem()));
-                
+                int id = 0;
+
+                for (int i = 0; i < this.controlador_colegios.getArray_colegio().size(); i++) {
+                    if (String.valueOf(jComboBox2.getSelectedItem()) == this.controlador_colegios.getArray_colegio().get(i).getNombre()) {
+                        id = this.controlador_colegios.getArray_colegio().get(i).getCod_colegio();
+                    }
+                }
+
+                Profesores profesor = new Profesores(Integer.valueOf(textFieldCod_prof.getText()), textFieldNombreProf.getText(), textFieldEstudios.getText(), textFieldRango.getText(), textFieldGenero.getText(), id);
+
                 controlador_profesores.insertarProfesor(profesor);
-                
+
                 contenido_tabla = controlador_profesores.introducirProfesorEnMatriz();
-                
+
                 try {
                     controlador_profesores.GuardarProfesoresFichero();
                 } catch (IOException ex) {
                     Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 this.mostrarTablaProfesores(contenido_tabla);
-                
+
                 this.setActivar_ingresar_profesores(false);
-                
+
                 this.borrarTextFieldProfesores();
-                
+
                 this.activarDesactivarEdicionBotonesProfesores(false);
-                
+
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1159,7 +1202,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
             this.controlador_profesores.getProfesoresDeArray(i).setRangos(textFieldRango.getText());
             this.controlador_profesores.getProfesoresDeArray(i).setGenero(textFieldGenero.getText());
             //this.controlador_profesores.getProfesoresDeArray(i).setCod_colegio(Integer.valueOf((String) jComboBox2.getSelectedItem()));
-            this.controlador_profesores.getProfesoresDeArray(i).setCod_colegio(String.valueOf(jComboBox2.getSelectedItem()));
+            //this.controlador_profesores.getProfesoresDeArray(i).setCod_colegio((jComboBox2.getSelectedItem()));
 
             contenido_tabla = controlador_profesores.introducirProfesorEnMatriz();
 
@@ -1177,17 +1220,18 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             this.activarDesactivarEdicionBotonesProfesores(false);
         } else if (isActivar_eliminar_profesores()) {
-            
+
             int i = jTable4.getSelectedRow();
 
             boolean aux = this.buscarFKEnAsignaturas(i);
 
             if (aux == false) {
 
-                this.controlador_profesores.getArray_profesores().remove(i);
+                this.controlador_profesores.deleteProfesoresFichero(this.controlador_profesores.getArray_profesores().get(i).getCod_prof());
 
                 try {
-                    controlador_profesores.GuardarProfesoresFichero();
+                    //controlador_profesores.GuardarProfesoresFichero();
+                    controlador_profesores.CaptarProfesoresFichero();
                 } catch (IOException ex) {
                     Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -1198,7 +1242,9 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Lo sentimos...No puedes eliminar un profesor con asignaturas previamente asignadas");
             }
 
+            contenido_tabla = controlador_profesores.introducirProfesorEnMatriz();
             this.mostrarTablaProfesores(contenido_tabla);
+
 
             this.setActivar_eliminar_profesores(false);
 

@@ -13,17 +13,22 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static modelo.Colegio.id;
 
 /**
  *
  * @author artur
  */
 public class Profesores implements Serializable {
-    
+
     private ArrayList<Profesores> array_profesores;
     private int cod_prof;
     public static int id;
@@ -31,81 +36,128 @@ public class Profesores implements Serializable {
     private String estudios;
     private String rangos;
     private String genero;
-    private String Cod_colegio;
+    private int id_colegio;
 
     public Profesores() {
         array_profesores = new ArrayList<>();
     }
 
-    
-    
-    public Profesores(int cod_prof, String nombre, String estudios, String rangos, String genero, String Cod_colegio) throws IOException {
-        
+    public Profesores(int cod_prof, String nombre, String estudios, String rangos, String genero, int id_colegio) throws IOException {
+
         array_profesores = new ArrayList();
-        
+
         this.array_profesores = LeerProfesoresFichero();
-        
-        if(this.array_profesores.size() - 1 >= 0){
+
+        if (this.array_profesores.size() - 1 >= 0) {
             this.id = this.array_profesores.get(this.array_profesores.size() - 1).id + 1;
             System.out.println(id);
         } else {
             this.id = id++;
         }
-        
-        this.cod_prof = cod_prof;
+
+        this.cod_prof = id;
         this.nombre = nombre;
         this.estudios = estudios;
         this.rangos = rangos;
         this.genero = genero;
-        this.Cod_colegio = Cod_colegio;
+        this.id_colegio = id_colegio;
     }
 
-    
     public ArrayList LeerProfesoresFichero() throws IOException {
 
-        File file = new File("FicheroProfesores.dat");
-        ObjectInputStream dataIS = new ObjectInputStream(new FileInputStream(file));
-        
-        try {
-            this.array_profesores  = ((ArrayList<Profesores>) dataIS.readObject());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Colegio.class.getName()).log(Level.SEVERE, null, ex);
+        this.array_profesores.clear();
+
+        String url = "jdbc:sqlite:D://sqlite/profesores.db";
+
+        String sql = "SELECT * FROM profesores";
+
+        try ( Connection conn = DriverManager.getConnection(url);  Statement stmt = conn.createStatement()) {
+            // create a new table
+
+            ResultSet resultado = stmt.executeQuery(sql);
+
+            while (resultado.next()) {
+                Profesores colegio = new Profesores();
+
+                colegio.setCod_prof(resultado.getInt(1));
+                colegio.setNombre(resultado.getString(2));
+                colegio.setEstudios(resultado.getString(3));
+                colegio.setRangos(resultado.getString(4));
+                colegio.setGenero(resultado.getString(5));
+                colegio.setCod_colegio(resultado.getInt(7));
+
+                this.array_profesores.add(colegio);
+            }
+
+            resultado.close();
+            stmt.close();
+
+            System.out.println("Se leyó la instancia");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-        
-        dataIS.close();
-        
+
         return this.array_profesores;
 
     }
-    
-    public void GuardarProfesoresFichero(ArrayList<Profesores> array_profesores) throws IOException{
-        
-        File file = new File("FicheroProfesores.dat");
-        FileOutputStream fileout = null;
-        ObjectOutputStream dataOS = null;
-        try {
-            fileout = new FileOutputStream(file);
-            dataOS = new ObjectOutputStream(fileout);
-            dataOS.writeObject(array_profesores);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Colegio.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Colegio.class.getName()).log(Level.SEVERE, null, ex);
+
+    public void GuardarProfesoresFichero(Profesores colegio) throws IOException {
+
+        String url = "jdbc:sqlite:D://sqlite/profesores.db";
+
+        String sql = "INSERT INTO profesores(id,cod_prof,nombre, estudios, rango, genero, cod_colegio) VALUES(?,?,?,?,?,?,?)";
+
+        try ( Connection conn = DriverManager.getConnection(url);  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, colegio.id);
+            pstmt.setInt(2, colegio.getCod_prof());
+            pstmt.setString(3, colegio.getNombre());
+            pstmt.setString(4, colegio.getEstudios());
+            pstmt.setString(5, colegio.getRangos());
+            pstmt.setString(6, colegio.getEstudios());
+            pstmt.setInt(7, colegio.getCod_colegio());
+
+            pstmt.executeUpdate();
+
+            System.out.println("Se inserto instancia");
+            pstmt.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-
-        dataOS.close();
-    }
-
-    public void setCod_colegio(String Cod_colegio) {
-        this.Cod_colegio = Cod_colegio;
-    }
-
-    public String getCod_colegio() {
-        return Cod_colegio;
     }
     
-    
-    
+    public void DeleteProfesorFichero(int cod_colegio){
+        
+        String url = "jdbc:sqlite:D://sqlite/profesores.db";
+        
+        String sql = "DELETE FROM profesores WHERE cod_prof = ?";
+        
+        try (Connection conn = DriverManager.getConnection(url);
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setInt(1, cod_colegio);
+            // execute the delete statement
+            pstmt.executeUpdate();
+            
+            System.out.println("SE ELIMINÓ EL PROFESORES CON ID = " + cod_colegio);
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+
+    public void setCod_colegio(int Cod_colegio) {
+        this.id_colegio = Cod_colegio;
+    }
+
+    public int getCod_colegio() {
+        return id_colegio;
+    }
+
     public void setCod_prof(int cod_prof) {
         this.cod_prof = cod_prof;
     }

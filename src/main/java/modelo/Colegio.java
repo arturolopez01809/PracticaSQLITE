@@ -54,7 +54,7 @@ public class Colegio implements Serializable {
             this.id = id++;
         }
         
-        this.setCod_colegio(cod_colegio);
+        this.setCod_colegio(id);
         this.setNombre(nombre);
         this.setDireccion(direccion);
         this.setEsPublico(esPublico);
@@ -151,6 +151,27 @@ public class Colegio implements Serializable {
             System.out.println(e.getMessage());
         }
         
+    }
+    
+    public void ActualizarColegios(Colegio colegio, int id){
+        
+        String url = "jdbc:sqlite:D://sqlite/colegios.db";
+        
+        String sql = "UPDATE colegios SET cod_colegio = " + colegio.getCod_colegio();
+        
+        try (Connection conn = DriverManager.getConnection(url);
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setInt(1, cod_colegio);
+            // execute the delete statement
+            pstmt.executeUpdate();
+            
+            System.out.println("SE ELIMINÓ EL COLEGIO CON ID = " + cod_colegio);
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void setCod_colegio(int cod_colegio) {

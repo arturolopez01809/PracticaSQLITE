@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import modelo.Colegio;
 import interfazad.*;
 import controlador.ControladorColegios;
+import java.io.IOException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -65,7 +66,7 @@ public class NewEmptyJUnitTest {
     // @Test
     // public void hello() {}
     @Test
-    public void comprobar_tamanio_al_insertar_colegio_en_fichero() {
+    public void comprobar_tamanio_al_insertar_colegio_en_fichero() throws IOException {
 
         this.array_colegio = controlador_colegios.getArray_colegio();
         int tamanio = array_colegio.size();
@@ -79,7 +80,7 @@ public class NewEmptyJUnitTest {
     }
 
     @Test
-    public void comprobar_tamanio_al_insertar_dos_colegios_en_array_con_misma_pk() {
+    public void comprobar_tamanio_al_insertar_dos_colegios_en_array_con_misma_pk() throws IOException {
 
         this.array_colegio = controlador_colegios.getArray_colegio();
         int tamanio = array_colegio.size();
@@ -98,7 +99,7 @@ public class NewEmptyJUnitTest {
     }
 
     @Test
-    public void comprobar_eliminar_1_colegio() {
+    public void comprobar_eliminar_1_colegio() throws IOException {
         this.array_colegio = controlador_colegios.getArray_colegio();
         int tamanio = array_colegio.size();
 
@@ -113,7 +114,7 @@ public class NewEmptyJUnitTest {
     }
     
     @Test
-    public void comprobar_modificar_1_colegio() {
+    public void comprobar_modificar_1_colegio() throws IOException {
         this.array_colegio = controlador_colegios.getArray_colegio();
         int tamanio = array_colegio.size();
 

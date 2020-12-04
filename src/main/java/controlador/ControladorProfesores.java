@@ -8,6 +8,7 @@ package controlador;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import modelo.Colegio;
 import modelo.Profesores;
 
 /**
@@ -33,7 +34,7 @@ public class ControladorProfesores implements Serializable {
     public ArrayList CaptarCod_profEnJComboBox(){
         ArrayList<String> cod_profesores = new ArrayList();
         for(int i = 0; i < getArray_profesores().size(); i++){
-            cod_profesores.add(String.valueOf(getProfesoresDeArray(i).getCod_prof()));
+            cod_profesores.add(getProfesoresDeArray(i).getNombre());
         }
         return cod_profesores;
     }
@@ -45,7 +46,12 @@ public class ControladorProfesores implements Serializable {
     
     public void GuardarProfesoresFichero() throws IOException{
         Profesores profesor = new Profesores();
-        profesor.GuardarProfesoresFichero(this.array_profesores);      
+        profesor.GuardarProfesoresFichero(this.array_profesores.get(this.array_profesores.size() - 1));
+    }
+    
+    public void deleteProfesoresFichero(int id){
+        Profesores colegio = new Profesores();
+        colegio.DeleteProfesorFichero(id);
     }
     
     public String[][] introducirProfesorEnMatriz(){
