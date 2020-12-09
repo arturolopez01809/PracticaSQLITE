@@ -132,7 +132,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         buttonAceptar.setVisible(activar);
         buttonCancelar.setVisible(activar);
 
-        textFieldCod_colegio.setEditable(activar);
         textFieldNombre.setEditable(activar);
         textFieldDireccion.setEditable(activar);
         textFieldEsPublico.setEditable(activar);
@@ -145,7 +144,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         buttonAceptarProfesores.setVisible(activar);
         buttonCancelarProfesores.setVisible(activar);
 
-        textFieldCod_prof.setEditable(activar);
         textFieldNombreProf.setEditable(activar);
         textFieldEstudios.setEditable(activar);
         textFieldRango.setEditable(activar);
@@ -158,7 +156,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         buttonAceptarAsignatura.setVisible(activar);
         buttonCancelarAsignatura.setVisible(activar);
 
-        textFieldCod_asig.setEditable(activar);
         textFieldNombreAsignatura.setEditable(activar);
         textFieldConvocatoria.setEditable(activar);
         textFieldTipo.setEditable(activar);
@@ -195,12 +192,10 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        labelCod_colegio = new javax.swing.JLabel();
         labelNombre = new javax.swing.JLabel();
         labelDireccion = new javax.swing.JLabel();
         labelEsPublico = new javax.swing.JLabel();
         labelTieneFP = new javax.swing.JLabel();
-        textFieldCod_colegio = new javax.swing.JTextField();
         textFieldNombre = new javax.swing.JTextField();
         textFieldDireccion = new javax.swing.JTextField();
         textFieldEsPublico = new javax.swing.JTextField();
@@ -217,7 +212,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         buttonBorrarProfesores = new javax.swing.JButton();
         labelTieneFP2 = new javax.swing.JLabel();
         buttonAceptarProfesores = new javax.swing.JButton();
-        textFieldCod_prof = new javax.swing.JTextField();
         buttonCancelarProfesores = new javax.swing.JButton();
         textFieldNombreProf = new javax.swing.JTextField();
         textFieldEstudios = new javax.swing.JTextField();
@@ -225,7 +219,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         textFieldGenero = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        labelCod_colegio2 = new javax.swing.JLabel();
         labelNombre2 = new javax.swing.JLabel();
         buttonIngresarProfesores = new javax.swing.JButton();
         labelDireccion2 = new javax.swing.JLabel();
@@ -240,14 +233,12 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         buttonAceptarAsignatura = new javax.swing.JButton();
         textFieldConvocatoria = new javax.swing.JTextField();
         buttonCancelarAsignatura = new javax.swing.JButton();
-        textFieldCod_asig = new javax.swing.JTextField();
         textFieldTipo = new javax.swing.JTextField();
         textFieldCurso = new javax.swing.JTextField();
         textFieldNombreAsignatura = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         labelCod_colegio1 = new javax.swing.JLabel();
-        labelNombre1 = new javax.swing.JLabel();
         buttonIngresarAsignatura = new javax.swing.JButton();
         labelDireccion1 = new javax.swing.JLabel();
         buttonModificarAsignatura = new javax.swing.JButton();
@@ -263,8 +254,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
             }
         });
 
-        labelCod_colegio.setText("Cod_colegio");
-
         labelNombre.setText("Nombre");
 
         labelDireccion.setText("Direccion");
@@ -272,12 +261,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         labelEsPublico.setText("Es Publico");
 
         labelTieneFP.setText("Tiene FP");
-
-        textFieldCod_colegio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldCod_colegioActionPerformed(evt);
-            }
-        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -347,14 +330,12 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(205, 205, 205)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelCod_colegio)
                     .addComponent(labelNombre)
                     .addComponent(labelDireccion)
                     .addComponent(labelEsPublico)
                     .addComponent(labelTieneFP))
-                .addGap(38, 38, 38)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textFieldCod_colegio)
                     .addComponent(textFieldNombre)
                     .addComponent(textFieldDireccion)
                     .addComponent(textFieldEsPublico)
@@ -379,10 +360,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelCod_colegio)
-                            .addComponent(textFieldCod_colegio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNombre)
                             .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -431,12 +409,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
             }
         });
 
-        textFieldCod_prof.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldCod_profActionPerformed(evt);
-            }
-        });
-
         buttonCancelarProfesores.setText("Cancelar");
         buttonCancelarProfesores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,8 +434,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(jTable4);
-
-        labelCod_colegio2.setText("Cod_prof");
 
         labelNombre2.setText("Nombre");
 
@@ -521,7 +491,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(205, 205, 205)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelCod_colegio2)
                     .addComponent(labelNombre2)
                     .addComponent(labelDireccion2)
                     .addComponent(labelEsPublico2)
@@ -530,7 +499,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldFKCod_colegio)
-                    .addComponent(textFieldCod_prof)
                     .addComponent(textFieldNombreProf)
                     .addComponent(textFieldEstudios)
                     .addComponent(textFieldRango)
@@ -543,10 +511,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelCod_colegio2)
-                            .addComponent(textFieldCod_prof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(38, 38, 38)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNombre2)
                             .addComponent(textFieldNombreProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -634,8 +599,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
         labelCod_colegio1.setText("Convocatoria");
 
-        labelNombre1.setText("Cod_asig");
-
         buttonIngresarAsignatura.setText("Ingresar");
         buttonIngresarAsignatura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -671,7 +634,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addGap(205, 205, 205)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCod_colegio1)
-                    .addComponent(labelNombre1)
                     .addComponent(labelDireccion1)
                     .addComponent(labelEsPublico1)
                     .addComponent(labelTieneFP1)
@@ -680,7 +642,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldFKCod_prof)
                     .addComponent(textFieldConvocatoria)
-                    .addComponent(textFieldCod_asig)
                     .addComponent(textFieldTipo)
                     .addComponent(textFieldCurso)
                     .addComponent(textFieldNombreAsignatura, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
@@ -709,11 +670,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelCod_colegio1)
                             .addComponent(textFieldConvocatoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNombre1)
-                            .addComponent(textFieldCod_asig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
+                        .addGap(60, 60, 60)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelDireccion1)
                             .addComponent(textFieldTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -767,7 +724,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         if (isActivar_ingresar()) {
 
             try {
-                Colegio colegio = new Colegio(Integer.valueOf(textFieldCod_colegio.getText()), textFieldNombre.getText(), textFieldDireccion.getText(), Boolean.valueOf(textFieldEsPublico.getText()), Boolean.valueOf(textFieldTieneFP.getText()));
+                Colegio colegio = new Colegio(textFieldNombre.getText(), textFieldDireccion.getText(), Boolean.valueOf(textFieldEsPublico.getText()), Boolean.valueOf(textFieldTieneFP.getText()));
 
                 contenido_tabla = controlador_colegios.almacenarColegios(colegio);
 
@@ -788,25 +745,14 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             int i = jTable2.getSelectedRow();
 
-            this.controlador_colegios.getColegioDeArray(i).setCod_colegio(Integer.valueOf(textFieldCod_colegio.getText()));
             this.controlador_colegios.getColegioDeArray(i).setNombre(textFieldNombre.getText());
             this.controlador_colegios.getColegioDeArray(i).setDireccion(textFieldDireccion.getText());
             this.controlador_colegios.getColegioDeArray(i).setEsPublico(Boolean.valueOf(textFieldEsPublico.getText()));
             this.controlador_colegios.getColegioDeArray(i).setTieneFP(Boolean.valueOf(textFieldTieneFP.getText()));
+            
+            this.controlador_colegios.updateColegio(this.controlador_colegios.getColegioDeArray(i));
 
             contenido_tabla = controlador_colegios.introducirColegiosEnMatriz();
-
-            try {
-                controlador_colegios.GuardarColegiosFichero();
-            } catch (IOException ex) {
-                Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-                controlador_colegios.CaptarColegiosFichero();
-            } catch (IOException ex) {
-                Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
             this.mostrarTablaColegio(contenido_tabla);
 
@@ -884,7 +830,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
     private void borrarTextFieldColegio() {
 
-        textFieldCod_colegio.setText("");
         textFieldNombre.setText("");
         textFieldDireccion.setText("");
         textFieldEsPublico.setText("");
@@ -894,28 +839,23 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
     private void borrarTextFieldProfesores() {
 
-        textFieldCod_prof.setText("");
         textFieldNombreProf.setText("");
         textFieldEstudios.setText("");
         textFieldRango.setText("");
         textFieldGenero.setText("");
-        textFieldCod_colegio.setText("");
     }
 
     private void borrarTextFieldAsignaturas() {
 
-        textFieldCod_asig.setText("");
         textFieldConvocatoria.setText("");
         textFieldTipo.setText("");
         textFieldCurso.setText("");
         textFieldNombreAsignatura.setText("");
-        textFieldCod_prof.setText("");
 
     }
 
     private void mostrarAtributosColegio(int i) {
 
-        textFieldCod_colegio.setText(String.valueOf(this.controlador_colegios.getColegioDeArray(i).getCod_colegio()));
         //textFieldCod_colegio.setText(String.valueOf(this.controlador_colegios.getColegioDeArray(i).id));
         textFieldNombre.setText(this.controlador_colegios.getColegioDeArray(i).getNombre());
         textFieldDireccion.setText(this.controlador_colegios.getColegioDeArray(i).getDireccion());
@@ -925,7 +865,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
     private void mostrarAtributosProfesores(int i) {
 
-        textFieldCod_prof.setText(String.valueOf(this.controlador_profesores.getProfesoresDeArray(i).getCod_prof()));
         textFieldNombreProf.setText(this.controlador_profesores.getProfesoresDeArray(i).getNombre());
         textFieldEstudios.setText(this.controlador_profesores.getProfesoresDeArray(i).getEstudios());
         textFieldRango.setText(this.controlador_profesores.getProfesoresDeArray(i).getRangos());
@@ -936,7 +875,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
     private void mostrarAtributosAsignatura(int i) {
 
-        textFieldCod_asig.setText(String.valueOf(this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).getCod_asig()));
         textFieldNombreAsignatura.setText(this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).getNombre());
         textFieldTipo.setText(this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).getTipo());
         textFieldCurso.setText(String.valueOf(this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).getCurso()));
@@ -961,10 +899,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
     private void buttonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonIngresarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonIngresarMouseClicked
-
-    private void textFieldCod_colegioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCod_colegioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldCod_colegioActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
 
@@ -1010,36 +944,27 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         if (isActivar_ingresar_asignaturas()) {
 
             try {
-
+                
                 int id = 0;
-
                 for (int i = 0; i < this.controlador_profesores.getArray_profesores().size(); i++) {
                     if (String.valueOf(jComboBoxAsignaturas.getSelectedItem()) == this.controlador_profesores.getArray_profesores().get(i).getNombre()) {
                         id = this.controlador_profesores.getArray_profesores().get(i).getCod_prof();
                     }
                 }
-
-                Asignaturas asignatura = new Asignaturas(Integer.valueOf(textFieldCod_asig.getText()), textFieldTipo.getText(), Integer.valueOf(textFieldCurso.getText()), textFieldNombreAsignatura.getText(), Integer.valueOf(textFieldConvocatoria.getText()), id);
-
+                Asignaturas asignatura = new Asignaturas(textFieldTipo.getText(), Integer.valueOf(textFieldCurso.getText()), textFieldNombreAsignatura.getText(), Integer.valueOf(textFieldConvocatoria.getText()), id);
                 controlador_asignaturas.insertarAsignatura(asignatura);
-
                 contenido_tabla = controlador_asignaturas.introducirAsignaturasEnMatriz();
-
                 try {
-                    //controlador_asignaturas.GuardarAsignaturasFichero();
-                    controlador_profesores.CaptarProfesoresFichero();
+                    controlador_asignaturas.GuardarAsignaturasFichero();
+                    //controlador_profesores.CaptarProfesoresFichero();
                 } catch (IOException ex) {
                     Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
                 this.mostrarTablaAsignaturas(contenido_tabla);
-
                 this.setActivar_ingresar_asignaturas(false);
-
                 this.borrarTextFieldAsignaturas();
-
                 this.activarDesactivarEdicionBotonesAsignaturas(false);
-
+                
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1048,20 +973,27 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             int i = jTable3.getSelectedRow();
 
-            this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setCod_asig(Integer.valueOf(textFieldCod_asig.getText()));
             this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setConvocatoria(Integer.valueOf(textFieldConvocatoria.getText()));
             this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setTipo(textFieldTipo.getText());
             this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setCurso(Integer.valueOf(textFieldCurso.getText()));
             this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setNombre(textFieldNombreAsignatura.getText());
-            this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setCod_prof(Integer.valueOf((String) jComboBoxAsignaturas.getSelectedItem()));
+            
+            
+            int id = 0;
+
+                for (int j = 0; j < this.controlador_profesores.getArray_profesores().size(); j++) {
+                    if (String.valueOf(jComboBoxAsignaturas.getSelectedItem()) == this.controlador_profesores.getArray_profesores().get(j).getNombre()) {
+                        id = this.controlador_profesores.getArray_profesores().get(j).getCod_prof();
+                    }
+                }
+            
+            this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i).setCod_prof(id);
+            
+            
+            this.controlador_asignaturas.updateAsignatura(this.controlador_asignaturas.getAsignaturaArrayAsignaturas(i));
+            
 
             contenido_tabla = controlador_asignaturas.introducirAsignaturasEnMatriz();
-
-            try {
-                controlador_asignaturas.GuardarAsignaturasFichero();
-            } catch (IOException ex) {
-                Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
             this.mostrarTablaAsignaturas(contenido_tabla);
 
@@ -1079,7 +1011,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             try {
                 //controlador_asignaturas.GuardarAsignaturasFichero();
-                controlador_profesores.CaptarProfesoresFichero();
+                controlador_asignaturas.CaptarAsignaturasFichero();
             } catch (IOException ex) {
                 Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1168,7 +1100,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                     }
                 }
 
-                Profesores profesor = new Profesores(Integer.valueOf(textFieldCod_prof.getText()), textFieldNombreProf.getText(), textFieldEstudios.getText(), textFieldRango.getText(), textFieldGenero.getText(), id);
+                Profesores profesor = new Profesores(textFieldNombreProf.getText(), textFieldEstudios.getText(), textFieldRango.getText(), textFieldGenero.getText(), id);
 
                 controlador_profesores.insertarProfesor(profesor);
 
@@ -1196,21 +1128,25 @@ public class ApartadoGrafico extends javax.swing.JFrame {
 
             int i = jTable4.getSelectedRow();
 
-            this.controlador_profesores.getProfesoresDeArray(i).setCod_prof(Integer.valueOf(textFieldCod_prof.getText()));
             this.controlador_profesores.getProfesoresDeArray(i).setNombre(textFieldNombreProf.getText());
             this.controlador_profesores.getProfesoresDeArray(i).setEstudios(textFieldEstudios.getText());
             this.controlador_profesores.getProfesoresDeArray(i).setRangos(textFieldRango.getText());
             this.controlador_profesores.getProfesoresDeArray(i).setGenero(textFieldGenero.getText());
-            //this.controlador_profesores.getProfesoresDeArray(i).setCod_colegio(Integer.valueOf((String) jComboBox2.getSelectedItem()));
-            //this.controlador_profesores.getProfesoresDeArray(i).setCod_colegio((jComboBox2.getSelectedItem()));
+            
+            int id = 0;
+
+                for (int j = 0; j < this.controlador_colegios.getArray_colegio().size(); j++) {
+                    if (String.valueOf(jComboBox2.getSelectedItem()) == this.controlador_colegios.getArray_colegio().get(j).getNombre()) {
+                        id = this.controlador_colegios.getArray_colegio().get(j).getCod_colegio();
+                    }
+                }
+            
+            this.controlador_profesores.getProfesoresDeArray(i).setCod_colegio(id);
+            
+            
+            this.controlador_profesores.updateProfesor(this.controlador_profesores.getProfesoresDeArray(i));
 
             contenido_tabla = controlador_profesores.introducirProfesorEnMatriz();
-
-            try {
-                controlador_profesores.GuardarProfesoresFichero();
-            } catch (IOException ex) {
-                Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
             this.mostrarTablaProfesores(contenido_tabla);
 
@@ -1230,7 +1166,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
                 this.controlador_profesores.deleteProfesoresFichero(this.controlador_profesores.getArray_profesores().get(i).getCod_prof());
 
                 try {
-                    //controlador_profesores.GuardarProfesoresFichero();
+                    
                     controlador_profesores.CaptarProfesoresFichero();
                 } catch (IOException ex) {
                     Logger.getLogger(ApartadoGrafico.class.getName()).log(Level.SEVERE, null, ex);
@@ -1258,10 +1194,6 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         CaptarYActualizarComboBoxCod_prof();
 
     }//GEN-LAST:event_buttonAceptarProfesoresActionPerformed
-
-    private void textFieldCod_profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCod_profActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldCod_profActionPerformed
 
     private void buttonCancelarProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarProfesoresActionPerformed
         // TODO add your handling code here:
@@ -1317,7 +1249,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
                 contenido_tabla,
                 new String[]{
-                    "Cod_colegios", "Nombre"
+                    "Nombre", "Direccion"
                 }
         ));
     }
@@ -1327,7 +1259,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
                 contenido_tabla,
                 new String[]{
-                    "Cod_prof", "Nombre"
+                    "Nombre", "Estudios"
                 }
         ));
     }
@@ -1337,7 +1269,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
                 contenido_tabla,
                 new String[]{
-                    "Cod_asig", "Convocatoria"
+                    "Nombre", "Tipo"
                 }
         ));
     }
@@ -1415,9 +1347,7 @@ public class ApartadoGrafico extends javax.swing.JFrame {
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextFieldFKCod_colegio;
     private javax.swing.JTextField jTextFieldFKCod_prof;
-    private javax.swing.JLabel labelCod_colegio;
     private javax.swing.JLabel labelCod_colegio1;
-    private javax.swing.JLabel labelCod_colegio2;
     private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelDireccion1;
     private javax.swing.JLabel labelDireccion2;
@@ -1425,14 +1355,10 @@ public class ApartadoGrafico extends javax.swing.JFrame {
     private javax.swing.JLabel labelEsPublico1;
     private javax.swing.JLabel labelEsPublico2;
     private javax.swing.JLabel labelNombre;
-    private javax.swing.JLabel labelNombre1;
     private javax.swing.JLabel labelNombre2;
     private javax.swing.JLabel labelTieneFP;
     private javax.swing.JLabel labelTieneFP1;
     private javax.swing.JLabel labelTieneFP2;
-    private javax.swing.JTextField textFieldCod_asig;
-    private javax.swing.JTextField textFieldCod_colegio;
-    private javax.swing.JTextField textFieldCod_prof;
     private javax.swing.JTextField textFieldConvocatoria;
     private javax.swing.JTextField textFieldCurso;
     private javax.swing.JTextField textFieldDireccion;

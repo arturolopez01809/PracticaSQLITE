@@ -45,14 +45,18 @@ public class ControladorAsignaturas implements Serializable{
         colegio.DeleteAsignaturaFichero(id);
     }
     
+    public void updateAsignatura(Asignaturas colegio){
+        colegio.ActualizarAsignaturas(colegio);
+    }
+    
     public String[][] introducirAsignaturasEnMatriz(){
         
         String contenido_tabla[][] = new String[this.getArray_asignatuas().size()][2];
         
         for (int i = 0; i < this.getArray_asignatuas().size(); i++) {
 
-            contenido_tabla[i][0] = String.valueOf(this.getAsignaturaArrayAsignaturas(i).getCod_asig());
-            contenido_tabla[i][1] = String.valueOf(this.getAsignaturaArrayAsignaturas(i).getConvocatoria());
+            contenido_tabla[i][0] = String.valueOf(this.getAsignaturaArrayAsignaturas(i).getNombre());
+            contenido_tabla[i][1] = String.valueOf(this.getAsignaturaArrayAsignaturas(i).getTipo());
         }
         
         return contenido_tabla;

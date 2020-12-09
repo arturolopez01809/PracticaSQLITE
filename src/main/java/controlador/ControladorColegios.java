@@ -38,8 +38,8 @@ public class ControladorColegios implements Serializable {
 
         for (int i = 0; i < this.getArray_colegio().size(); i++) {
 
-            contenido_tabla[i][0] = String.valueOf(this.getColegioDeArray(i).getCod_colegio());
-            contenido_tabla[i][1] = String.valueOf(this.getColegioDeArray(i).getNombre());
+            contenido_tabla[i][0] = String.valueOf(this.getColegioDeArray(i).getNombre());
+            contenido_tabla[i][1] = String.valueOf(this.getColegioDeArray(i).getDireccion());
         }
 
         return contenido_tabla;
@@ -76,6 +76,10 @@ public class ControladorColegios implements Serializable {
     public void deleteColegioFichero(int id){
         Colegio colegio = new Colegio();
         colegio.DeleteColegioFichero(id);
+    }
+    
+    public void updateColegio(Colegio colegio){
+        colegio.ActualizarColegios(colegio);
     }
 
     public String[][] almacenarColegios(Colegio colegio) {

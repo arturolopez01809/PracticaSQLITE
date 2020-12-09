@@ -5,13 +5,7 @@
  */
 package modelo;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,8 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -136,7 +128,32 @@ public class Asignaturas implements Serializable{
         
     }
     
-    public Asignaturas(int cod_asig, String tipo, int curso, String nombre, int convocatoria, int cod_prof) throws IOException {
+    public void ActualizarAsignaturas(Asignaturas colegio) {
+
+        String url = "jdbc:sqlite:D://sqlite/asignaturas.db";
+
+        String sql = "UPDATE asignaturas SET id=?, cod_asig=?, tipo=?, curso=?, nombre=?, convocatoria=?, cod_prof=? "
+                + "WHERE id=" + id + "";
+
+        try ( Connection conn = DriverManager.getConnection(url);  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, colegio.id);
+            pstmt.setInt(2, colegio.getCod_asig());
+            pstmt.setString(3, colegio.getTipo());
+            pstmt.setInt(4, colegio.getCurso());
+            pstmt.setString(5, colegio.getNombre());
+            pstmt.setInt(6, colegio.getConvocatoria());
+            pstmt.setInt(7, colegio.getCod_prof());
+            
+            pstmt.executeUpdate();
+
+            System.out.println("SE ACTUALIZO LA ASIGNATURA CON ID = " + colegio.getCod_asig());
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public Asignaturas(String tipo, int curso, String nombre, int convocatoria, int cod_prof) throws IOException {
         
         array_asignaturas = new ArrayList();
         

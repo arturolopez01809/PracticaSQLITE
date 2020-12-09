@@ -3,7 +3,6 @@ interfazad\ApartadoGrafico$3.class
 controlador\ControladorAsignaturas.class
 interfazad\ApartadoGrafico$22.class
 interfazad\Vista.class
-interfazad\ApartadoGrafico$27.class
 interfazad\ApartadoGrafico$1.class
 controlador\ControladorColegios.class
 controlador\ControladorProfesores.class
@@ -28,7 +27,6 @@ interfazad\ApartadoGrafico$18.class
 modelo\Profesores.class
 interfazad\ApartadoGrafico$16.class
 modelo\Colegio.class
-interfazad\ApartadoGrafico$26.class
 modelo\Asignaturas.class
 interfazad\ApartadoGrafico$21.class
 interfazad\ApartadoGrafico$24.class

@@ -51,10 +51,10 @@ public class Connect {
         String sql = "CREATE TABLE IF NOT EXISTS colegios (\n"
                 + "	id integer PRIMARY KEY,\n"
                 + "	cod_colegio integer NOT NULL,\n"
-                + "	nombre text NOT NULL,\n"
-                + "     direccion text NOT NULL,\n"
-                + "     espublico boolean NOT NULL,\n"
-                + "     tienefp boolean NOT NULL\n"
+                + "	nombre text ,\n"
+                + "     direccion text ,\n"
+                + "     espublico boolean ,\n"
+                + "     tienefp boolean \n"
                 + ");";
         
         try (Connection conn = DriverManager.getConnection(url);

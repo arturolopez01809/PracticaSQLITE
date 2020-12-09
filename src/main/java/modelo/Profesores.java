@@ -42,7 +42,7 @@ public class Profesores implements Serializable {
         array_profesores = new ArrayList<>();
     }
 
-    public Profesores(int cod_prof, String nombre, String estudios, String rangos, String genero, int id_colegio) throws IOException {
+    public Profesores(String nombre, String estudios, String rangos, String genero, int id_colegio) throws IOException {
 
         array_profesores = new ArrayList();
 
@@ -78,12 +78,13 @@ public class Profesores implements Serializable {
 
             while (resultado.next()) {
                 Profesores colegio = new Profesores();
-
-                colegio.setCod_prof(resultado.getInt(1));
-                colegio.setNombre(resultado.getString(2));
-                colegio.setEstudios(resultado.getString(3));
-                colegio.setRangos(resultado.getString(4));
-                colegio.setGenero(resultado.getString(5));
+                
+                colegio.id = resultado.getInt(1);
+                colegio.setCod_prof(resultado.getInt(2));
+                colegio.setNombre(resultado.getString(3));
+                colegio.setEstudios(resultado.getString(4));
+                colegio.setRangos(resultado.getString(5));
+                colegio.setGenero(resultado.getString(6));
                 colegio.setCod_colegio(resultado.getInt(7));
 
                 this.array_profesores.add(colegio);
@@ -148,6 +149,32 @@ public class Profesores implements Serializable {
             System.out.println(e.getMessage());
         }
         
+    }
+    
+    public void ActualizarProfesores(Profesores colegio) {
+
+        String url = "jdbc:sqlite:D://sqlite/profesores.db";
+
+        String sql = "UPDATE profesores SET id=?, cod_prof=?, nombre=?, estudios=?, rango=?, genero=?, cod_colegio=? "
+                + "WHERE cod_prof=" + colegio.getCod_prof()+ "";
+
+        try ( Connection conn = DriverManager.getConnection(url);  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setInt(1, colegio.id);
+            pstmt.setInt(2, colegio.getCod_prof());
+            pstmt.setString(3, colegio.getNombre());
+            pstmt.setString(4, colegio.getEstudios());
+            pstmt.setString(5, colegio.getRangos());
+            pstmt.setString(6, colegio.getGenero());
+            pstmt.setInt(7, colegio.getCod_colegio());
+            
+            pstmt.executeUpdate();
+
+            System.out.println("SE ACTUALIZO EL COLEGIO CON ID = " + colegio.getCod_prof());
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void setCod_colegio(int Cod_colegio) {

@@ -57,15 +57,13 @@
                       <Component id="jScrollPane2" min="-2" pref="490" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelCod_colegio" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEsPublico" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelTieneFP" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="textFieldCod_colegio" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldNombre" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldDireccion" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldEsPublico" alignment="0" max="32767" attributes="0"/>
@@ -94,11 +92,7 @@
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelCod_colegio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldCod_colegio" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -139,11 +133,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="labelCod_colegio">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cod_colegio"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="labelNombre">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nombre"/>
@@ -163,11 +152,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tiene FP"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldCod_colegio">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldCod_colegioActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="textFieldNombre">
             </Component>
@@ -292,7 +276,6 @@
                       <Component id="jScrollPane4" min="-2" pref="490" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelCod_colegio2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelNombre2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelDireccion2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEsPublico2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -302,7 +285,6 @@
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextFieldFKCod_colegio" max="32767" attributes="0"/>
-                          <Component id="textFieldCod_prof" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldNombreProf" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldEstudios" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldRango" alignment="0" max="32767" attributes="0"/>
@@ -318,11 +300,7 @@
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelCod_colegio2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldCod_prof" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelNombre2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textFieldNombreProf" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -395,11 +373,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAceptarProfesoresActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="textFieldCod_prof">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldCod_profActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="buttonCancelarProfesores">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
@@ -456,11 +429,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="labelCod_colegio2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cod_prof"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="labelNombre2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nombre"/>
@@ -532,7 +500,6 @@
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelCod_colegio1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNombre1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelDireccion1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEsPublico1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelTieneFP1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -542,7 +509,6 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextFieldFKCod_prof" max="32767" attributes="0"/>
                           <Component id="textFieldConvocatoria" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textFieldCod_asig" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldTipo" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldCurso" alignment="0" max="32767" attributes="0"/>
                           <Component id="textFieldNombreAsignatura" alignment="0" pref="217" max="32767" attributes="0"/>
@@ -576,12 +542,7 @@
                                   <Component id="labelCod_colegio1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textFieldConvocatoria" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldCod_asig" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelDireccion1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textFieldTipo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -662,8 +623,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelarAsignaturaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="textFieldCod_asig">
-            </Component>
             <Component class="javax.swing.JTextField" name="textFieldTipo">
             </Component>
             <Component class="javax.swing.JTextField" name="textFieldCurso">
@@ -713,11 +672,6 @@
             <Component class="javax.swing.JLabel" name="labelCod_colegio1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Convocatoria"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelNombre1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cod_asig"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="buttonIngresarAsignatura">
